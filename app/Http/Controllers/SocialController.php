@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Socialite;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class SocialController extends Controller
 {
@@ -42,7 +44,8 @@ class SocialController extends Controller
         }
     
          // 登入並且「記住」使用者...
-        auth()->login($account);
+        Auth::login($account);
+        
         //回到首頁
         return redirect('/');
     }
