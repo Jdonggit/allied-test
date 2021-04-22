@@ -19,4 +19,8 @@ class ConstellationRepository extends Repository
     {
         $this->model->insert($data);
     }
+    public function deleteFormToDay()
+    {
+        $this->model->where('date', date('Y-m-d'))->delete();
+    }
 }

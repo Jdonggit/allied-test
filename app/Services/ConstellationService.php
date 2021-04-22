@@ -29,6 +29,9 @@ class ConstellationService extends Service
      */
     public function get_constellation()
     {
+
+        $this->repository->deleteFormToDay();
+
         $all_data = array();
 
         $res = Http::get($this->url); 
