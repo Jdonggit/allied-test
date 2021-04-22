@@ -41,10 +41,13 @@ class SocialController extends Controller
             $new_user->google_token = $user->token;
             $new_user->password = bcrypt('githubtest');
             $new_user->save();
+            Auth::login($new_user);
+        }else{
+
+            // 登入並且「記住」使用者...
+            Auth::login($account);
         }
     
-         // 登入並且「記住」使用者...
-        Auth::login($account);
         
         //回到首頁
         return redirect('/');
